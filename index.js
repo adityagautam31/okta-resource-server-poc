@@ -12,6 +12,7 @@ const AUDIENCE = 'https://okta-resource-server-poc.onrender.com'; // will update
 
 const oktaJwtVerifier = new OktaJwtVerifier({
   issuer: `${OKTA_DOMAIN}/oauth2/${AUTH_SERVER_ID}`,
+  jwksUri: `${OKTA_DOMAIN}/oauth2/${AUTH_SERVER_ID}/v1/keys`
 });
 
 app.get('/', (req, res) => {
