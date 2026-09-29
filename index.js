@@ -4,11 +4,9 @@ const OktaJwtVerifier = require('@okta/jwt-verifier');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// ========== CONFIGURE THESE 3 VALUES ==========
-const OKTA_DOMAIN = 'https://demo-amethyst-tyrannosaurus-16806.okta.com';          // e.g. https://dev-123456.okta.com
-const AUTH_SERVER_ID = 'api://default';                        // usually "default"
-const AUDIENCE = 'https://okta-resource-server-poc.onrender.com'; // will update after deploy
-// ================================================
+const OKTA_DOMAIN = 'https://demo-amethyst-tyrannosaurus-16806.okta.com';
+const AUTH_SERVER_ID = 'default';
+const AUDIENCE = 'api://default';
 
 const oktaJwtVerifier = new OktaJwtVerifier({
   issuer: `${OKTA_DOMAIN}/oauth2/${AUTH_SERVER_ID}`,
@@ -34,9 +32,9 @@ app.get('/api/items', async (req, res) => {
 
     const scopes = jwt.claims.scp || [];
     if (!scopes.includes('read:items')) {
-      return res.status(403).json({ 
+      return res.status(403).json({
         error: 'Missing required scope: read:items',
-        yourScopes: scopes 
+        yourScopes: scopes
       });
     }
 
@@ -47,9 +45,9 @@ app.get('/api/items', async (req, res) => {
       audience: jwt.claims.aud
     });
   } catch (err) {
-    res.status(401).json({ 
-      error: 'Invalid token', 
-      details: err.message 
+    res.status(401).json({
+      error: 'Invalid token',
+      details: err.message
     });
   }
 });
