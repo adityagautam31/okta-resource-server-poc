@@ -1,0 +1,16 @@
+{
+  "name": "okta-resource-server-poc",
+  "version": "1.0.0",
+  "description": "Minimal Okta Resource Server POC",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "@okta/jwt-verifier": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
