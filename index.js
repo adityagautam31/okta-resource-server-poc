@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 
 // ========== CONFIGURE THESE 3 VALUES ==========
 const OKTA_DOMAIN = 'https://demo-amethyst-tyrannosaurus-16806.okta.com';          // e.g. https://dev-123456.okta.com
-const AUTH_SERVER_ID = 'default';                        // usually "default"
+const AUTH_SERVER_ID = 'api://default';                        // usually "default"
 const AUDIENCE = 'https://okta-resource-server-poc.onrender.com'; // will update after deploy
 // ================================================
 
